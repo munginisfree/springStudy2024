@@ -12,9 +12,9 @@ import java.util.List;
 //@Repository
 public class ScoreJdbcRepository implements ScoreRepository {
 
-    private String url = "jdbc:mariadb://localhost:3306/spring5";
+    private String url = "jdbc:mariadb://localhost:3306/spring";
     private String username = "root";
-    private String password = "mariadb";
+    private String password = "1234";
 
     public ScoreJdbcRepository() {
         try {
