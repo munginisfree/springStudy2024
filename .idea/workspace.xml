@@ -201,7 +201,7 @@
       <recent name="com.study.springstudy.webservlet.chap02.v2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberServiceTest.SuccessTest">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="MemberMapperTest.encodingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springstudy.test" />
       <extension name="coverage">
