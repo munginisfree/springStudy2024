@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec3da5f4-95c0-4ce2-96e2-c5d6bdbf9b4b" name="변경" comment="# 회원관리 시스템 만들기 - Entity, Mapper 생성">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/dto/request/SignUpDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/service/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/confg/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/study/springstudy/springmvc/chap05/service/MemberServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/api/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/dto/request/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/service/LoginResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/side-menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/static-head.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/members/sign-up.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap03/repository/ScoreJdbcRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap03/repository/ScoreJdbcRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/study/springstudy/springmvc/chap05/mapper/MemberMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/study/springstudy/springmvc/chap05/mapper/MemberMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/dto/request/SignUpDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/dto/request/SignUpDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/chap05/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/confg/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/confg/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/springstudy/webservlet/chap02/v5/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/webservlet/chap02/v5/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/img/마멜이.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/write.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/write.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/study/springstudy/springmvc/chap05/service/MemberServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/study/springstudy/springmvc/chap05/service/MemberServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +60,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="jsp template" />
-        <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -117,7 +127,10 @@
     "JUnit.MemberMapperTest.existsTest2.executor": "Run",
     "JUnit.MemberMapperTest.findOneTest.executor": "Run",
     "JUnit.MemberMapperTest.saveTest.executor": "Run",
+    "JUnit.MemberServiceTest.SuccessTest.executor": "Run",
     "JUnit.MemberServiceTest.joinTest.executor": "Run",
+    "JUnit.MemberServiceTest.noAccTest.executor": "Run",
+    "JUnit.MemberServiceTest.noPwTest.executor": "Run",
     "JUnit.PersonMapperTest.delTest.executor": "Run",
     "JUnit.PersonMapperTest.findAllTest.executor": "Run",
     "JUnit.PersonMapperTest.findNamesTest.executor": "Run",
@@ -172,6 +185,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.study.springstudy.springmvc.chap05.service" />
       <recent name="com.study.springstudy.springmvc.chap05.entity" />
       <recent name="com.study.springstudy.database.chap01" />
       <recent name="com.study.springstudy.springmvc.chap03.entity" />
@@ -191,11 +205,11 @@
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.study.springstudy.springmvc.chap05.service" />
       <recent name="com.study.springstudy.springmvc.chap05.mapper" />
       <recent name="com.study.springstudy.springmvc" />
       <recent name="com.study.springstudy.springmvc.chap05" />
       <recent name="com.study.springstudy.springmvc.chap04.mapper" />
-      <recent name="com.study.springstudy.springmvc.chap03.mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.study.springstudy.webservlet.chap02.v3.controller" />
@@ -203,20 +217,7 @@
       <recent name="com.study.springstudy.webservlet.chap02.v2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberServiceTest.joinTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.study.springstudy.Main" />
-      <module name="springstudy.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.study.springstudy.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.MemberServiceTest.SuccessTest">
     <configuration name="MemberMapperTest.encodingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springstudy.test" />
       <extension name="coverage">
@@ -228,6 +229,22 @@
       <option name="PACKAGE_NAME" value="com.study.springstudy.springmvc.chap05.mapper" />
       <option name="MAIN_CLASS_NAME" value="com.study.springstudy.springmvc.chap05.mapper.MemberMapperTest" />
       <option name="METHOD_NAME" value="encodingTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberServiceTest.SuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springstudy.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.springstudy.springmvc.chap05.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study.springstudy.springmvc.chap05.service" />
+      <option name="MAIN_CLASS_NAME" value="com.study.springstudy.springmvc.chap05.service.MemberServiceTest" />
+      <option name="METHOD_NAME" value="SuccessTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -249,6 +266,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MemberServiceTest.noAccTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springstudy.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.springstudy.springmvc.chap05.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study.springstudy.springmvc.chap05.service" />
+      <option name="MAIN_CLASS_NAME" value="com.study.springstudy.springmvc.chap05.service.MemberServiceTest" />
+      <option name="METHOD_NAME" value="noAccTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberServiceTest.noPwTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springstudy.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.springstudy.springmvc.chap05.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study.springstudy.springmvc.chap05.service" />
+      <option name="MAIN_CLASS_NAME" value="com.study.springstudy.springmvc.chap05.service.MemberServiceTest" />
+      <option name="METHOD_NAME" value="noPwTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="springstudy.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.study.springstudy.Main" />
@@ -258,6 +307,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MemberServiceTest.SuccessTest" />
+        <item itemvalue="JUnit.MemberServiceTest.noPwTest" />
+        <item itemvalue="JUnit.MemberServiceTest.noAccTest" />
         <item itemvalue="JUnit.MemberServiceTest.joinTest" />
         <item itemvalue="JUnit.MemberMapperTest.encodingTest" />
       </list>
@@ -281,7 +333,7 @@
       <updated>1715582906822</updated>
       <workItem from="1716528901753" duration="151000" />
       <workItem from="1716767867006" duration="45000" />
-      <workItem from="1717021377347" duration="3691000" />
+      <workItem from="1717021377347" duration="12444000" />
     </task>
     <task id="LOCAL-00001" summary="프론트 컨트롤러 패턴 part1">
       <option name="closed" value="true" />

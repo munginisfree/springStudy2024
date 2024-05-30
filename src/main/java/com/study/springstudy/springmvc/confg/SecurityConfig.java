@@ -15,6 +15,7 @@ public class SecurityConfig {
     // @Bean은 내가 안만든 클래스에 붙임. 스프링에게 주입해달라고 쓰는 것
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf().disable() // csrf 토큰 공격방지 기능 off
                 // 저 패턴에 해당 되는 요청은 모두 허용한다 (인증 안하겠다)
                 // 즉 여기선 모든 요청에 대해 인증하지 않겠다
                 .authorizeRequests().antMatchers("/**").permitAll();
