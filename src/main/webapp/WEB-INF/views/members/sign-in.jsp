@@ -103,6 +103,16 @@
     }else if(result === 'NO_PW'){
         alert('비밀번호가 틀렸습니다');
     }
+
+    // 비회원인 상태로 접근 제한 페이지에 들어갔다온 경우
+    // 이 경우에는 쿼리스트링에 message Parameter가 붙어있음
+    const params = new URLSearchParams(window.location.search);
+    const message = params.get('message');
+
+    if(message === 'login-required'){
+        alert('로그인이 필요한 서비스입니다.');
+    }
+
 </script>
 
 </body>
