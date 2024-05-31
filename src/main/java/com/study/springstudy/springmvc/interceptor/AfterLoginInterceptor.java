@@ -1,4 +1,4 @@
-package com.study.springstudy.interceptor;
+package com.study.springstudy.springmvc.interceptor;
 
 import com.study.springstudy.springmvc.util.LoginUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +19,7 @@ public class AfterLoginInterceptor implements HandlerInterceptor {
         log.debug("after login interceptor execute!!");
         if(LoginUtil.isLoggedIn(request.getSession())){
             response.sendRedirect("/");
+//            response.sendRedirect();
             return false;
         }
         return true; // true 일 경우 컨트롤러 진입 허용, false 진입 차단

@@ -16,7 +16,6 @@ public class BoardListResponseDto {
 
         }
      */
-
     private int bno; // 원본 게시물 번호
     private String shortTitle; // 5글자 이상 줄임 처리된 제목
     private String shortContent; // 30자 이상 줄임 처리된 글 내용
@@ -25,6 +24,7 @@ public class BoardListResponseDto {
     private boolean hit; // HIT 게시물인가?
     private boolean newArticle; // 새 게시물(1시간 이내)인가?
     private int replyCount; // 댓글 수
+    private String account;
 
 
     // 엔터티를 DTO로 변환하는 생성자
@@ -40,6 +40,7 @@ public class BoardListResponseDto {
         this.hit = this.view > 5;
         this.newArticle = LocalDateTime.now().isBefore(regTime.plusMinutes(5));
         this.replyCount = b.getReplyCount();
+        this.account = b.getAccount();
     }
 
     private String dateFormatting(LocalDateTime regDateTime) {
