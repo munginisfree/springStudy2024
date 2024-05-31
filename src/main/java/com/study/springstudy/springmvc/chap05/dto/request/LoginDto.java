@@ -1,7 +1,7 @@
 package com.study.springstudy.springmvc.chap05.dto.request;
 
 import lombok.*;
-
+@Setter
 @Getter @ToString
 @AllArgsConstructor
 @NoArgsConstructor

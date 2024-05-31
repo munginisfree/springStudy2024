@@ -62,4 +62,6 @@ public class MemberService {
     public boolean checkIdentifier(String type, String keyword){
         return memberMapper.existsById(type, keyword);
     }
+
+
 }
