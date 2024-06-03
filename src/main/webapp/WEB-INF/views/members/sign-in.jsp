@@ -110,6 +110,7 @@
     const message = params.get('message');
     const prevWork = params.get('prevWork');
 
+
     if(message === 'login-required'){
         alert('로그인이 필요한 서비스입니다.');
         // 쿼리 파라미터를 제거한 새로운 URL 생성
@@ -120,6 +121,9 @@
         // history.replaceState(state, title, url) : 브라우저 조작
         history.replaceState(null, null, newUrl);
     }
+
+
+
 
 </script>
 

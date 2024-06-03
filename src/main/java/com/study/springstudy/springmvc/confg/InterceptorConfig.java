@@ -23,6 +23,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 // 해당 인터셉터가 동작할 URL을 설정
                 .addPathPatterns("/members/sign-up", "/members/sign-in");
 
+        // 게시판 인터셉터 작성
         registry.addInterceptor(boardInterceptor)
                 .addPathPatterns("/board/*")
                 .excludePathPatterns("/board/list", "/board/detail")
