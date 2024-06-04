@@ -6,6 +6,7 @@ import com.study.springstudy.springmvc.chap04.dto.BoardDetailResponseDto;
 import com.study.springstudy.springmvc.chap04.dto.BoardListResponseDto;
 import com.study.springstudy.springmvc.chap04.dto.BoardWriteRequestDto;
 import com.study.springstudy.springmvc.chap04.service.BoardService;
+import com.study.springstudy.springmvc.chap05.dto.response.ReactionDto;
 import com.study.springstudy.springmvc.chap05.service.ReactionService;
 import com.study.springstudy.springmvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
@@ -108,20 +109,32 @@ public class BoardController {
     @GetMapping("/like")
     @ResponseBody
     public ResponseEntity<?> like(long bno, HttpSession session){
+        // 로그인 검증
+        if(!LoginUtil.isLoggedIn(session)){
+            return ResponseEntity.status(403)
+                    .body("로그인이 필요합니다.");
+        }
+
         log.info("like async request!!");
         String account = LoginUtil.getLoggedInUserAccount(session);
-        reactionService.like(bno, account); // 좋아요 요청 처리
+        ReactionDto dto = reactionService.like(bno, account);// 좋아요 요청 처리
 
-        return null;
+        return ResponseEntity.ok(dto);
     }
     // 싫어요 요청 비동기 처리
     @GetMapping("/dislike")
     @ResponseBody
     public ResponseEntity<?> dislike(long bno, HttpSession session){
+
+        // 로그인 검증
+        if(!LoginUtil.isLoggedIn(session)){
+            return ResponseEntity.status(403)
+                    .body("로그인이 필요합니다.");
+        }
+
         log.info("dislike async request!!");
         String account = LoginUtil.getLoggedInUserAccount(session);
-        reactionService.dislike(bno, account); // 좋아요 요청 처리
-        return null;
+        ReactionDto dto = reactionService.dislike(bno, account);// 좋아요 요청 처리
+        return ResponseEntity.ok(dto);
     }
-
 }

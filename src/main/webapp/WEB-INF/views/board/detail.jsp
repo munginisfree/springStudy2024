@@ -28,14 +28,14 @@
                     <div class="reaction-buttons">
                         <button id="like-btn">
                             <i class="fas fa-thumbs-up"></i> 좋아요
-                            <span id="like-count">0</span>
+                            <span id="like-count">${bbb.likeCount}</span>
                         </button>
                         <button
                                 id="dislike-btn"
                                 class="dislike-btn"
                         >
                             <i class="fas fa-thumbs-down"></i> 싫어요
-                            <span id="dislike-count">0</span>
+                            <span id="dislike-count">${bbb.dislikeCount}</span>
                         </button>
                     </div>
 
@@ -147,25 +147,62 @@
 
 
             <script type="module" src="/assets/js/reply.js"></script>
-            <script>
-                // 서버에 좋아요, 싫어요 요청을 보내는 함수
-                async function sendReaction(reactionType){
-                    console.log(reactionType);
-                    const bno = document.getElementById('wrap').dataset.bno;
-                    const res = await fetch(`/board/\${reactionType}?bno=\${bno}`);
+        <script>
+            // 랜더링 초기에 버튼 활성화
+            const userReaction = `${bbb.userReaction}`;
+            updateReactionButtons(userReaction);
+
+            // 서버에 좋아요, 싫어요 요청을 보내는 함수
+            async function sendReaction(reactionType) {
+                console.log(reactionType);
+                const bno = document.getElementById('wrap').dataset.bno;
+
+                const res = await fetch(`/board/\${reactionType}?bno=\${bno}`);
+
+                if(res.status === 403){
+                    const msg = await res.text();
+                    alert(msg);
+                    return;
                 }
 
-                // 좋아요 클릭 이벤트
-                document.getElementById('like-btn').addEventListener('click', e => {
-                    // console.log('like');
-                    sendReaction('like');
-                });
-                // 싫어요 클릭 이벤트
-                document.getElementById('dislike-btn').addEventListener('click', e => {
-                    // console.log('dislike');
-                    sendReaction('dislike');
-                });
-            </script>
+                const { likeCount, dislikeCount, userReaction } = await res.json();
+
+                document.getElementById('like-count').textContent = likeCount;
+                document.getElementById('dislike-count').textContent = dislikeCount;
+
+                // console.log(json);
+                // 버튼 활성화 스타일 처리
+                updateReactionButtons(userReaction);
+            }
+            // 좋아요, 싫어요 버튼 배경색 변경
+            function updateReactionButtons(userReaction){
+                const $likeBtn = document.getElementById('like-btn');
+                const $dislikeBtn = document.getElementById('dislike-btn')
+                const ACTIVE = 'active';
+                // 좋아요 버튼이 눌렸을 경우
+                if(userReaction === 'LIKE'){
+                    $likeBtn.classList.add(ACTIVE);
+                    $dislikeBtn.classList.remove(ACTIVE);
+                }else if(userReaction === 'DISLIKE'){ // 싫어요 버튼이 눌렸을 경우
+                    $dislikeBtn.classList.add(ACTIVE);
+                    $likeBtn.classList.remove(ACTIVE);
+                }else{ // 둘 다 안눌렸을 경우
+                    $dislikeBtn.classList.remove(ACTIVE);
+                    $likeBtn.classList.remove(ACTIVE);
+                }
+            }
+            // 좋아요 클릭 이벤트
+            document.getElementById('like-btn').addEventListener('click', e => {
+                sendReaction('like');
+            });
+
+            // 싫어요 클릭 이벤트
+            document.getElementById('dislike-btn').addEventListener('click', e => {
+                sendReaction('dislike');
+            });
+        </script>
+
+
         </body>
 
         </html>
