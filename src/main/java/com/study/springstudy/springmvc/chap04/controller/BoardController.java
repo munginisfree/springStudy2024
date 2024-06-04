@@ -1,20 +1,19 @@
 package com.study.springstudy.springmvc.chap04.controller;
 
-import com.study.springstudy.springmvc.chap01.ResponseController;
-import com.study.springstudy.springmvc.chap04.common.Page;
 import com.study.springstudy.springmvc.chap04.common.PageMaker;
 import com.study.springstudy.springmvc.chap04.common.Search;
 import com.study.springstudy.springmvc.chap04.dto.BoardDetailResponseDto;
 import com.study.springstudy.springmvc.chap04.dto.BoardListResponseDto;
 import com.study.springstudy.springmvc.chap04.dto.BoardWriteRequestDto;
 import com.study.springstudy.springmvc.chap04.service.BoardService;
+import com.study.springstudy.springmvc.chap05.service.ReactionService;
+import com.study.springstudy.springmvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,11 +23,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/board")
 @RequiredArgsConstructor
+@Slf4j
 public class BoardController {
 
     //    private final BoardRepository repository;
-    private final BoardService service;
-    private final ResponseController responseController;
+    private final BoardService boardService;
+    private final ReactionService reactionService;
 
     // 1. 목록 조회 요청 (/board/list : GET)
     @GetMapping("/list")
@@ -36,9 +36,9 @@ public class BoardController {
         System.out.println("/board/list GET");
 
         // 서비스에게 조회 요청 위임
-        List<BoardListResponseDto> bList = service.findList(page);
+        List<BoardListResponseDto> bList = boardService.findList(page);
         // 페이지 정보를 생성하여 JSP에게 전송
-        PageMaker maker = new PageMaker(page, service.getCount(page));
+        PageMaker maker = new PageMaker(page, boardService.getCount(page));
 
         // 3. JSP파일에 해당 목록데이터를 보냄
         model.addAttribute("bList", bList);
@@ -64,7 +64,7 @@ public class BoardController {
         // 1. 브라우저가 전달한 게시글 내용 읽기
         System.out.println("dto = " + dto);
 
-        service.insert(dto, session);
+        boardService.insert(dto, session);
 
         return "redirect:/board/list";
     }
@@ -75,7 +75,7 @@ public class BoardController {
     public String delete(int bno) {
         System.out.println("/board/delete GET");
 
-        service.remove(bno);
+        boardService.remove(bno);
 
         return "redirect:/board/list";
     }
@@ -92,7 +92,7 @@ public class BoardController {
         System.out.println("bno = " + bno);
 
         // 2. 데이터베이스로부터 해당 글번호 데이터 조회하기
-        BoardDetailResponseDto dto = service.detail(bno, request, response);
+        BoardDetailResponseDto dto = boardService.detail(bno, request, response);
 
         // 3. JSP파일에 조회한 데이터 보내기
         model.addAttribute("bbb", dto);
@@ -104,5 +104,24 @@ public class BoardController {
         return "board/detail";
     }
 
+    // 좋아요 요청 비동기처리
+    @GetMapping("/like")
+    @ResponseBody
+    public ResponseEntity<?> like(long bno, HttpSession session){
+        log.info("like async request!!");
+        String account = LoginUtil.getLoggedInUserAccount(session);
+        reactionService.like(bno, account); // 좋아요 요청 처리
+
+        return null;
+    }
+    // 싫어요 요청 비동기 처리
+    @GetMapping("/dislike")
+    @ResponseBody
+    public ResponseEntity<?> dislike(long bno, HttpSession session){
+        log.info("dislike async request!!");
+        String account = LoginUtil.getLoggedInUserAccount(session);
+        reactionService.dislike(bno, account); // 좋아요 요청 처리
+        return null;
+    }
 
 }
