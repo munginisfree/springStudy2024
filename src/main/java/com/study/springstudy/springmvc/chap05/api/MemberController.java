@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,9 +46,13 @@ public class MemberController {
         log.info("/members/sign-up POST ");
         log.debug("parameter: {}", dto);
         log.debug("attached profile image name: {}", dto.getProfileImage().getContentType());
-
+        String profilePath = null;
         // 서버에 업로드
-        String profilePath = FileUtil.uploadFile(rootPath, dto.getProfileImage());
+        MultipartFile profileImage = dto.getProfileImage();
+        if(!profileImage.isEmpty()){
+         profilePath = FileUtil.uploadFile(rootPath, profileImage);
+        }
+
         boolean flag = memberService.join(dto, profilePath);
 
         return flag ? "redirect:/members/sign-in" : "redirect:/members/sign-up";
