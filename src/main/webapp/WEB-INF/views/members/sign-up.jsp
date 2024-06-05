@@ -220,7 +220,7 @@
           const $img = document.querySelector('.thumbnail-box img');
           $img.src = reader.result;
         };
-        
+
     });
 </script>
 </body>
