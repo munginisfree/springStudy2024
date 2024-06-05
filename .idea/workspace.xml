@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec3da5f4-95c0-4ce2-96e2-c5d6bdbf9b4b" name="변경" comment="# 회원관리 시스템 만들기 - Entity, Mapper 생성">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/upload/UploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/util/FileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload/upload-form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/anonymous.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/image-add.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/springstudy/springmvc/util/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/css/member.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/member.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/members/sign-up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/members/sign-up.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload/upload-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload/upload-form.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +323,7 @@
       <workItem from="1716767867006" duration="45000" />
       <workItem from="1717021377347" duration="12444000" />
       <workItem from="1717373035838" duration="10035000" />
-      <workItem from="1717545843939" duration="3076000" />
+      <workItem from="1717545843939" duration="5772000" />
     </task>
     <task id="LOCAL-00001" summary="프론트 컨트롤러 패턴 part1">
       <option name="closed" value="true" />
@@ -735,5 +738,16 @@
     <MESSAGE value="댓글 수정 프론트엔드" />
     <MESSAGE value="# 회원관리 시스템 만들기 - Entity, Mapper 생성" />
     <option name="LAST_COMMIT_MESSAGE" value="# 회원관리 시스템 만들기 - Entity, Mapper 생성" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/upload/upload-form.jsp</url>
+          <line>7</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
